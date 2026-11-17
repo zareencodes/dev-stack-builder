@@ -67,28 +67,33 @@ Open the localhost URL displayed in your terminal in your web browser.
 
 ## 📚 React Questions and Answers
 
-### 1. What is React?
-React is a JavaScript library used to build user interfaces, especially for web applications.
+### 1. What is JSX, and why is it used in React?
 
-### 2. What is a Component?
-A component is a reusable piece of UI. For example, Navbar, Hero, and Footer are components in this project.
+JSX is a syntax that allows us to write HTML-like code inside JavaScript. It makes creating React user interfaces easier and more readable.
 
-### 3. What is JSX?
-JSX is a syntax that allows us to write HTML-like code inside JavaScript.
+### 2. What is the difference between props and state?
 
-### 4. What are Props?
-Props are used to pass data from one component to another component.
+Props are used to pass data from a parent component to a child component. State is data managed inside a component that can change over time.
 
-### 5. What is State?
-State is data managed inside a component. When state changes, React updates the UI.
+### 3. What does the useState hook do, and where did you use it in this project?
 
-### 6. What is the useState Hook?
-useState is a React Hook that allows functional components to create and manage state.
+The useState hook allows functional components to manage data that can change. In this project, I used it to manage the selected technologies in Your Stack and the loading state.
 
-### 7. What is the useEffect Hook?
-useEffect is a React Hook used to perform side effects, such as fetching data or running code after rendering.
+### 4. What does the useEffect hook do, and why did you need it to load the JSON data?
 
----
+The useEffect hook is used to perform side effects in a component. I used it to load technology data from the JSON file when the TechnologySection component loads.
+
+### 5. Why does every item in a .map() list need a unique key prop?
+
+A unique key helps React identify each item in a list. It allows React to update the list efficiently when items are added or removed.
+
+### 6. What is conditional rendering? Show one place you used it (example: the empty stack message).
+
+Conditional rendering means displaying different UI elements based on a condition. In this project, I used it to show an empty stack message when no technologies have been selected.
+
+### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+A parent component passes data to a child using props. A child can communicate back to the parent by calling a function passed to it through props.
 
 **Project Name:** Dev Stack Builder
 
