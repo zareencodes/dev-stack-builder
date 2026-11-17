@@ -57,14 +57,24 @@ function TechnologySection() {
     toast.success('Your stack has been cleared!')
   }
 
-  // Loading state
-  if (loading) {
-    return (
-      <p className="text-center py-20 text-lg">
+  
+// Loading state
+if (loading) {
+  return (
+    <div
+      className="flex flex-col items-center justify-center py-20"
+      role="status"
+      aria-live="polite"
+    >
+      <div className="w-12 h-12 border-4 border-violet-200 border-t-violet-600 rounded-full animate-spin mb-4"></div>
+
+      <p className="text-gray-600 text-lg font-medium">
         Loading technologies...
       </p>
-    )
-  }
+    </div>
+  )
+}
+
 
   return (
     <section
