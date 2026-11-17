@@ -1,7 +1,7 @@
 
 function TechnologyCard({ technology, isAdded, onAdd }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+    <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
 
       {/* Icon and Badge */}
       <div className="flex justify-between items-start mb-5">
@@ -9,7 +9,8 @@ function TechnologyCard({ technology, isAdded, onAdd }) {
         <div className="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center p-2">
           <img
             src={technology.icon}
-            alt={technology.name}
+            alt={`${technology.name} logo`}
+            loading="lazy"
             className="w-full h-full object-contain"
           />
         </div>
@@ -45,22 +46,28 @@ function TechnologyCard({ technology, isAdded, onAdd }) {
 
       {/* Rating */}
       <div className="flex items-center gap-2 mb-5">
-        <span className="text-yellow-500">★</span>
+        <span className="text-yellow-500" aria-hidden="true">★</span>
 
         <span className="text-gray-700 font-semibold text-sm">
           {technology.rating}
         </span>
 
         <span className="text-gray-400 text-sm">
-          Rating
+          Rating out of 5
         </span>
       </div>
 
       {/* Add Button */}
       <button
+        type="button"
         onClick={() => onAdd(technology)}
         disabled={isAdded}
-        className={`w-full py-3 rounded-xl font-semibold transition ${
+        aria-label={
+          isAdded
+            ? `${technology.name} is already in your stack`
+            : `Add ${technology.name} to your stack`
+        }
+        className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 ${
           isAdded
             ? 'bg-green-100 text-green-700 cursor-not-allowed'
             : 'bg-gray-900 text-white hover:bg-violet-600'
