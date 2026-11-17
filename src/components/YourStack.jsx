@@ -1,7 +1,10 @@
 
 function YourStack({ stack, onRemove, onRemoveAll }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm h-fit">
+    <div
+      className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm h-fit"
+      aria-label="Your selected technology stack"
+    >
 
       {/* Heading */}
       <div className="flex justify-between items-center mb-6">
@@ -10,7 +13,10 @@ function YourStack({ stack, onRemove, onRemoveAll }) {
           Your Stack
         </h2>
 
-        <span className="bg-violet-100 text-violet-700 px-3 py-1 rounded-full text-sm font-semibold">
+        <span
+          aria-live="polite"
+          className="bg-violet-100 text-violet-700 px-3 py-1 rounded-full text-sm font-semibold"
+        >
           {stack.length} Selected
         </span>
 
@@ -19,9 +25,14 @@ function YourStack({ stack, onRemove, onRemoveAll }) {
       {/* Empty Message */}
       {stack.length === 0 ? (
 
-        <div className="text-center py-10">
+        <div
+          className="text-center py-10"
+          role="status"
+        >
 
-          <div className="text-5xl mb-4">🧰</div>
+          <div className="text-5xl mb-4" aria-hidden="true">
+            🧰
+          </div>
 
           <h3 className="font-semibold text-gray-700 mb-2">
             Your stack is empty
@@ -46,7 +57,8 @@ function YourStack({ stack, onRemove, onRemoveAll }) {
 
               <img
                 src={technology.icon}
-                alt={technology.name}
+                alt={`${technology.name} logo`}
+                loading="lazy"
                 className="w-10 h-10 object-contain"
               />
 
@@ -63,8 +75,10 @@ function YourStack({ stack, onRemove, onRemoveAll }) {
               </div>
 
               <button
+                type="button"
                 onClick={() => onRemove(technology.id)}
-                className="text-red-500 hover:bg-red-50 rounded-lg px-2 py-1"
+                aria-label={`Remove ${technology.name} from your stack`}
+                className="text-red-500 hover:bg-red-50 rounded-lg px-2 py-1 focus-visible:outline-2 focus-visible:outline-red-500"
                 title="Remove technology"
               >
                 ✕
@@ -76,8 +90,9 @@ function YourStack({ stack, onRemove, onRemoveAll }) {
 
           {/* Remove All Button */}
           <button
+            type="button"
             onClick={onRemoveAll}
-            className="w-full mt-4 border border-red-200 text-red-500 py-2 rounded-xl font-semibold hover:bg-red-50 transition"
+            className="w-full mt-4 border border-red-200 text-red-500 py-2 rounded-xl font-semibold hover:bg-red-50 transition focus-visible:outline-2 focus-visible:outline-red-500"
           >
             Remove All
           </button>
